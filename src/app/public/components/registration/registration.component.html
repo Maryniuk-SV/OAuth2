@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form class="example-form mt-3" [formGroup]="form">
+        <mat-form-field class="example-full-width d-block">
+          <input matInput placeholder="Name" [formControl]="name" />
+          <mat-error *ngIf="name.hasError('required')">
+            Name is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width d-block">
+          <input matInput placeholder="Email" [formControl]="email" />
+          <mat-error
+            *ngIf="email.hasError('email') && !email.hasError('required')"
+          >
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="email.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width d-block">
+          <input matInput placeholder="Password" [formControl]="password" />
+          <mat-error *ngIf="password.hasError('required')">
+            Password is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <button type="submit" class="mt-2" mat-raised-button color="primary">Registration</button>
+      </form>
+    </div>
+  </div>
+</div>
