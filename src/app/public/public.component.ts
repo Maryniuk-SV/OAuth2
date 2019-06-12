@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-public',
@@ -11,7 +12,11 @@ export class PublicComponent implements OnInit {
     { path: 'registration', label: 'Registration' },
   ];
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
+
+  public loginWith(api: string) {
+    return this.authService.loginWith(api).subscribe(data => console.log(data));
+  }
 }
